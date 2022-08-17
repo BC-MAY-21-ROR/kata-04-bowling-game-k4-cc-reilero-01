@@ -16,7 +16,7 @@ class Score_logger
             first_score = frame.score[0]
             second_score = frame.score[1]
         end
-        print "|  #{first_score}  | #{second_score} |"
+        # print "|  #{first_score}  | #{second_score} |"
     end
 
     def self.log_game(player_score)
