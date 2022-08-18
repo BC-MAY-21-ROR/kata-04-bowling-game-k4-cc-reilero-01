@@ -1,23 +1,15 @@
+require_relative "icons"
 class Score_logger
     def initialize
     end
 
     def self.log_frame(frame)
-        
-        square = "\u2B1B"
-        triangle = "\u25e2"
-        if frame.strike
-            first_score = ""
-            second_score = square.encode('utf-8') 
-        elsif frame.spare
-            first_score = frame.score[0]
-            second_score = triangle.encode('utf-8')
+        score_display = Icons.display_icons(frame.score)
+        if frame.score.size == 2
+            return "|  #{score_display[0]}  | #{score_display[1]} "
         else
-            first_score = frame.score[0]
-            second_score = frame.score[1]
+            return "| #{score_display[0]} | #{score_display[1]} | #{score_display[2]} |"
         end
-
-        "|  #{first_score}  | #{second_score} "
     end
 
     def self.log_game(player_score)
@@ -25,7 +17,6 @@ class Score_logger
         player_score.score.each do |frame|
             top_row += log_frame(frame)
         end
-        top_row += "|"
         middle_row = "-" * top_row.size
         puts top_row
         puts middle_row        
