@@ -6,8 +6,9 @@ require_relative 'frame'
 class Bowling_game
     def initialize
         @player = Player_score.new
-        Score_logger.log_frame(@player.score[0])
-        # @player.list_score
+        @player.calc_total_score
+        Score_logger.log_game(@player)
+        @player.list_score
     end
 end
 

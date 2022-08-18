@@ -3,7 +3,7 @@ class Score_logger
     end
 
     def self.log_frame(frame)
-        #frame.strike? 
+        
         square = "\u2B1B"
         triangle = "\u25e2"
         if frame.strike
@@ -16,10 +16,19 @@ class Score_logger
             first_score = frame.score[0]
             second_score = frame.score[1]
         end
-        # print "|  #{first_score}  | #{second_score} |"
+
+        "|  #{first_score}  | #{second_score} "
     end
 
     def self.log_game(player_score)
-
+        top_row = ""
+        player_score.score.each do |frame|
+            top_row += log_frame(frame)
+        end
+        top_row += "|"
+        middle_row = "-" * top_row.size
+        puts top_row
+        puts middle_row        
+        puts player_score.accumulated_score.map { |score| "|" + score.to_s.center(9) }.join("") + "|"
     end
 end
