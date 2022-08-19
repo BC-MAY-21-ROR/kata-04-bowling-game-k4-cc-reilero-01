@@ -1,3 +1,4 @@
 # Setup
+Para ejecutar el proyecto
+- Desde la raíz ejecutar "ruby .\lib\main.rb"
 
-Escribe aquí los pasos para ejecutar/probar tu proyecto
